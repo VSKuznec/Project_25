@@ -57,25 +57,25 @@ namespace Project_25
 
         public List<Book> BooksByGenreAndYear(string genre, int startYear, int endYear)
         {
-            var query = _books.Where(u => u.Genre == genre && u.Year >= startYear && u.Year <= endYear); 
+            var query = _books.Where(u => u.Genre.Name == genre && int.Parse(u.Year) >= startYear && int.Parse(u.Year) <= endYear); 
             return query.ToList();
         }
 
         public int BooksCountByAuthor(string author)
         {
-            var query = _books.Where(u => u.Author == author);
+            var query = _books.Where(u => u.Author.FirstName == author);
             return query.Count();
         }
 
         public int BooksCountByGenre(string genre)
         {
-            var query = _books.Where(u => u.Genre == genre);
+            var query = _books.Where(u => u.Genre.Name == genre);
             return query.Count();
         }
 
         public bool BooksExists(string author, string title)
         {
-            var query = _books.Where(u => u.Author == author && u.Title == title);
+            var query = _books.Where(u => u.Author.FirstName == author && u.Title == title);
             return query.Any();
         }
 

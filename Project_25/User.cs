@@ -12,5 +12,6 @@ namespace Project_25
         public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
+        public object Book { get; internal set; }
     }
 }
